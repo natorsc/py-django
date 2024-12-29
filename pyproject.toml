@@ -1,0 +1,44 @@
+[project]
+name = "py-django"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django-rosetta>=0.10.1",
+    "django>=5.1.4",
+    "environs>=11.2.1",
+    "whitenoise>=6.8.2",
+    "django-bootstrap5>=24.3",
+    "dj-database-url>=2.3.0",
+    "gunicorn>=23.0.0",
+    "uvicorn>=0.34.0",
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=4.4.6",
+    "ruff>=0.8.4",
+    "taskipy>=1.14.1",
+]
+
+[tool.ruff]
+line-length = 79
+extend-exclude = ["public"]
+
+[tool.ruff.lint]
+select = ["I", "F", "E", "W", "PL", "PT"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.taskipy.tasks]
+dev = "./src/manage.py runserver"
+format = "ruff check . --select I --fix && ruff format ."
+prod = { cmd = "python -m gunicorn _config.asgi:application -k uvicorn.workers.UvicornWorker", cwd = "./src"}
+migrate = "./src/manage.py makemigrations && ./src/manage.py migrate"
+superuser = "./src/manage.py createsuperuser"
+startapp = { cmd = "./manage.py startapp", cwd = "./src"}
+statics = "./src/manage.py collectstatic --no-input"
+tr = "django-admin makemessages -l"
+tr-compile = "django-admin compilemessages"

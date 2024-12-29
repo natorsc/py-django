@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-29 17:58-0300\n"
+"PO-Revision-Date: 2024-12-29 21:00+0000\n"
+"Last-Translator: Renato Cruz <natorsc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: src/_config/settings.py:120
+msgid "English"
+msgstr "Inglês"
+
+#: src/_config/settings.py:121
+msgid "Brazilian Portuguese"
+msgstr "Português do Brasil"
+
+#: src/accounts/templates/accounts/profile.html:8
+msgid "Not registered"
+msgstr "Não registrado"
+
+#: src/accounts/templates/accounts/profile.html:13
+msgid "Name"
+msgstr "Nome"
+
+#: src/accounts/templates/accounts/profile.html:16
+msgid "User"
+msgstr "Usuário"
+
+#: src/accounts/templates/accounts/profile.html:20
+msgid "Created in"
+msgstr "Criado em"
+
+#: src/accounts/templates/accounts/profile.html:22
+msgid "Update"
+msgstr "Atualizar"
+
+#: src/accounts/templates/accounts/signup.html:6
+msgid "Create account"
+msgstr "Criar conta"
+
+#: src/accounts/templates/accounts/update.html:6
+msgid "Update account"
+msgstr "Atualizar conta"
+
+#: src/base/templates/base/is-authenticated.html:7
+msgid "Profile"
+msgstr "Perfil"
+
+#: src/base/templates/base/is-authenticated.html:16
+msgid "Exit"
+msgstr "Sair"
+
+#: src/base/templates/base/navbar.html:41
+msgid "Sign up"
+msgstr "Criar"
+
+#: src/base/templates/base/navbar.html:43
+msgid "Log in"
+msgstr "Entrar"
+
+#: src/base/templates/registration/password_reset_complete.html:3
+msgid "Password changed successfully"
+msgstr "Senha alterada com sucesso"
+
+#: src/base/templates/registration/password_reset_confirm.html:3
+#: src/base/templates/registration/password_reset_confirm.html:6
+#: src/base/templates/registration/password_reset_form.html:3
+msgid "Change password"
+msgstr "Alterar senha"
+
+#: src/base/templates/registration/password_reset_confirm.html:10
+msgid ""
+"\n"
+"    <h1>Password change failed</h1>\n"
+"    <p>The link used to change the password is <b>invalid</b>.</p>\n"
+"    <p>This occurred because this link has already been used.</p>\n"
+"    <p>Request a new password reset.</p>\n"
+"    "
+msgstr ""
+"\n"
+"<h1>Falha na alteração da senha</h1>\n"
+"<p>O link usado para alterar a senha é <b>inválido</b>.</p>\n"
+"<p>Isso ocorreu porque este link já foi usado.</p>\n"
+"<p>Solicite uma nova redefinição de senha.</p>"
+
+#: src/base/templates/registration/password_reset_done.html:3
+msgid "Sent"
+msgstr "Enviado"
+
+#: src/base/templates/registration/password_reset_done.html:6
+msgid ""
+"\n"
+"    <h1>Sent</h1>\n"
+"    <p>We will email you instructions for setting your password.</p>\n"
+"    <p class=\"text-warning\">Remember to check your spam folder.</p>\n"
+"    "
+msgstr ""
+"\n"
+"<h1>Enviado</h1>\n"
+"<p>Enviaremos a você por e-mail instruções para definir sua senha.</p>\n"
+"<p class=\"text-warning\">Lembre-se de verificar sua pasta de spam.</p>"
+
+#: src/home/views.py:11
+msgid "Hello World!"
+msgstr "Olá Mundo!"
