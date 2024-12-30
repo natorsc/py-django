@@ -1,3 +1,5 @@
+![Django web framework](docs/images/py-django.webp)
+
 # Django
 
 Initial template for projects with the [Django](https://www.djangoproject.com/) web framework.
@@ -21,3 +23,4 @@ Initial template for projects with the [Django](https://www.djangoproject.com/) 
 - [x] Accounts urls.
 - [x] Sitemaps.
 - [x] Change language.
+- [x] light/dark mode.
