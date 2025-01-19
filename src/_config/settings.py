@@ -89,6 +89,24 @@ WSGI_APPLICATION = '_config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {'default': env.dj_db_url('DATABASE_URL')}
+match DATABASES['default']['ENGINE']:
+    case 'django.db.backends.postgresql':
+        DATABASES['OPTIONS'] = {
+            'conn_max_age': 600,
+            'conn_health_checks': True,
+        }
+    case 'django.db.backends.mysql':
+        DATABASES['OPTIONS'] = {
+            'charset': 'utf8mb4',
+            'init_command': 'SET default_storage_engine=INNODB',
+        }
+    case 'django.db.backends.sqlite3':
+        DATABASES['OPTIONS'] = {
+            'transaction_mode': 'IMMEDIATE',
+            'init_command': 'PRAGMA journal_mode=WAL;PRAGMA synchronous=NORMAL;',
+        }
+    case _:
+        pass
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
