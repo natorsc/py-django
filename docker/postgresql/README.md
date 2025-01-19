@@ -29,7 +29,7 @@ O PostgreSQL é reconhecido como um dos SGBDs mais avançados do mundo, sendo ad
 ## Psycopg
 
 ```bash
-uv add psycopg[binary]
+uv add psycopg-binary
 ```
 
 ## Env file
