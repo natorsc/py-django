@@ -4,13 +4,13 @@
 
 # [podman](https://podman.io/) - [podman-compose](https://github.com/containers/podman-compose):
 # - `podman-compose up`.
-# - `podman-compose down.
+# - `podman-compose down`.
 
 services:
   db:
     image: mysql:9.1.0
     container_name: MySQL
-    restart: on-failure
+    restart: always
     ports:
       - '3306:3306'
     environment:
@@ -18,3 +18,9 @@ services:
       MYSQL_PASSWORD: 123456
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: database_name
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+      

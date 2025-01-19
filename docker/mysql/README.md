@@ -14,24 +14,34 @@ Ele é uma implementação do MySQL C API e é comumente usado em conjunto com o
 
 ## Instalação
 
-### Binário
+### Dependências
 
-```bash
-uv add --only-binary :all: mysqlclient
-```
-
-### Compilado
-
-#### Dependências
-
-##### Arch Linux
+#### Arch Linux
 
 ```bash
 sudo pacman -S \
 python-mysqlclient
 ```
 
-##### Ubuntu e derivados
+#### Fedora
+
+```bash
+sudo dnf group install \
+"Development Tools" # (dnf4).
+```
+
+```bash
+sudo dnf install \
+@development-tools # (dnf5) Fedora >= 41.
+```
+
+```bash
+sudo dnf install \
+mysql-devel \
+pkgconfig
+```
+
+#### Ubuntu e derivados
 
 ```bash
 sudo apt install \
@@ -40,7 +50,7 @@ default-libmysqlclient-dev \
 build-essential
 ```
 
-Após realizar instalação das dependêcias:
+Após realizar instalação das dependências:
 
 ```bash
 uv add mysqlclient
@@ -49,8 +59,6 @@ uv add mysqlclient
 ---
 
 ## Env file
-
-### PythonAnywhere
 
 ```env
 DATABASE_URL=mysql://DBUSER:PASSWORD@HOSTNAME:PORT/DATABASE
