@@ -6,8 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "django-rosetta>=0.10.1",
-    "django>=5.1.4",
-    "environs>=11.2.1",
+    "django>=5.1.6",
+    "environs>=14.1.0",
     "whitenoise>=6.8.2",
     "django-bootstrap5>=24.3",
     "dj-database-url>=2.3.0",
@@ -17,8 +17,8 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "django-debug-toolbar>=4.4.6",
-    "ruff>=0.8.4",
+    "django-debug-toolbar>=5.0.1",
+    "ruff>=0.9.4",
     "taskipy>=1.14.1",
 ]
 
@@ -33,10 +33,11 @@ select = ["I", "F", "E", "W", "PL", "PT"]
 quote-style = "single"
 
 [tool.taskipy.tasks]
-dev = "./src/manage.py runserver"
+env = "cp bkp-env.txt .env"
 format = "ruff check . --select I --fix && ruff format ."
-prod = { cmd = "python -m gunicorn _config.asgi:application -k uvicorn.workers.UvicornWorker", cwd = "./src"}
 migrate = "./src/manage.py makemigrations && ./src/manage.py migrate"
+prod = { cmd = "python -m gunicorn _config.asgi:application -k uvicorn.workers.UvicornWorker", cwd = "./src"}
+runserver = "./src/manage.py runserver"
 superuser = "./src/manage.py createsuperuser"
 startapp = { cmd = "./manage.py startapp", cwd = "./src"}
 statics = "./src/manage.py collectstatic --no-input"
