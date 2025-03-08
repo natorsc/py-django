@@ -35,11 +35,11 @@ quote-style = "single"
 [tool.taskipy.tasks]
 env = "cp bkp-env.txt .env"
 format = "ruff check . --select I --fix && ruff format ."
-migrate = "./src/manage.py makemigrations && ./src/manage.py migrate"
-prod = { cmd = "python -m gunicorn _config.asgi:application -k uvicorn.workers.UvicornWorker", cwd = "./src"}
-runserver = "./src/manage.py runserver"
-superuser = "./src/manage.py createsuperuser"
-startapp = { cmd = "./manage.py startapp", cwd = "./src"}
-statics = "./src/manage.py collectstatic --no-input"
+migrate = "python manage.py makemigrations && python manage.py migrate"
+prod = "python -m gunicorn _config.asgi:application -k uvicorn.workers.UvicornWorker"
+runserver = "python manage.py runserver"
+superuser = "python manage.py createsuperuser"
+startapp = "python manage.py startapp"
+statics = "python manage.py collectstatic --no-input"
 tr = "django-admin makemessages -l"
-tr-compile = "django-admin compilemessages"
+tr-compile = "django-admin compilemessages --ignore .venv"
