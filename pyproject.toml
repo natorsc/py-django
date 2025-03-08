@@ -6,10 +6,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "django-rosetta>=0.10.1",
-    "django>=5.1.6",
+    "django>=5.1.7",
     "environs>=14.1.1",
     "whitenoise>=6.9.0",
-    "django-bootstrap5>=24.3",
+    "django-bootstrap5>=25.1",
     "dj-database-url>=2.3.0",
     "gunicorn>=23.0.0",
     "uvicorn>=0.34.0",
