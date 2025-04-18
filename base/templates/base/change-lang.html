@@ -1,0 +1,10 @@
+{% load i18n %}
+<form action="{% url 'set_language' %}" class="d-flex" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}"/>
+    <select class="form-select form-select-sm" name="language">
+        <option value="en-US">{% translate "Language" %}</option>
+        <option value="en-US">{% translate "English" %}</option>
+        <option value="pt-BR">{% translate "Portuguese (pt_BR)" %}</option>
+    </select>
+    <button class="btn btn-outline-secondary btn-sm" type="submit">{% translate "Change" %}</button>
+</form>

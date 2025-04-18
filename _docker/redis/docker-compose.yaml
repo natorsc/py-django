@@ -1,0 +1,15 @@
+# [Docker](https://docs.docker.com/):
+# - `docker-compose up`.
+# - `docker-compose down`.
+
+# [podman](https://podman.io/) - [podman-compose](https://github.com/containers/podman-compose):
+# - `podman-compose up`.
+# - `podman-compose down.
+
+services:
+  db:
+    image: redis:7.4.1
+    container_name: Redis
+    restart: on-failure
+    ports:
+      - '6379:6379'

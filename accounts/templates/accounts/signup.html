@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% block title %}Create account{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>{% translate "Create account" %}</h1>
+    {% include 'base/form.html' with button='Create' %}
+</div>
+{% endblock %}

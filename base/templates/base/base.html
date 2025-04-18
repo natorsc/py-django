@@ -1,0 +1,31 @@
+<!doctype html>{% load static %}
+<html data-bs-theme="auto" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="{% block author %}{% endblock %}" name="author">
+    <meta content="{% block keywords %}{% endblock %}" name="keywords">
+    <meta content="{% block description %}{% endblock %}" name="description">
+    <link href="{% static 'base/favicons/favicon.png' %}" rel="apple-touch-icon" sizes="180x180">
+    <link href="{% static 'base/favicons/favicon.png' %}" rel="icon" sizes="32x32" type="image/png">
+    <link href="{% static 'base/favicons/favicon.png' %}" rel="icon" sizes="16x16" type="image/png">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}
+    <link href="{% static 'base/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+{% include 'base/navbar.html' %}
+{% include 'base/messages.html' %}
+{% block content %}{% endblock %}
+{% include 'base/footer.html' %}
+{% block javascript %}
+<script src="{% static 'base/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'base/js/bootstrap-change-theme-min.js' %}"></script>
+{% endblock %}
+</body>
+
+</html>

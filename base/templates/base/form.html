@@ -1,0 +1,6 @@
+{% load i18n %}
+{% load django_bootstrap5 %}
+<form action="." class="my-4" method="post">{% csrf_token %}
+    {% bootstrap_form form %}
+    <button class="btn btn-primary" type="submit">{% translate button %}</button>
+</form>

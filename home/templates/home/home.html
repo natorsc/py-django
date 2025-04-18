@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}]
+{% load static %}
+{% load i18n %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>{{ title }}</h1>
+    <p>{% translate "Welcome to the home page!" %}</p>
+    <button class="btn btn-primary" id="homeButton" type="button ">
+        {% translate "Click me" %}
+    </button>
+</div>
+{% endblock %}
+{% block javascript %}
+{{ block.super }}
+<script src="{% url 'javascript-catalog' %}"></script>
+<script src="{% static 'home/js/main.js' %}"></script>
+{% endblock %}
