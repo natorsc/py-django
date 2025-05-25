@@ -2,9 +2,9 @@
 
 # Django
 
-Initial template for projects with the [Django](https://www.djangoproject.com/) web framework.
+A ready-to-use starter template for building web applications with the [Django](https://www.djangoproject.com/) framework - structured, clean, and easy to extend.
 
-**Done**:
+## Done
 
 - [x] [uv](https://github.com/astral-sh/uv). An extremely fast Python package and project manager, written in Rust.
 - [x] [Django Rosetta](https://github.com/mbi/django-rosetta). Rosetta is a Django application that eases the translation process of your Django projects.
