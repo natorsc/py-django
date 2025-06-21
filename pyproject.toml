@@ -10,9 +10,10 @@ dependencies = [
     "django-rosetta>=0.10.2",
     "dj-database-url>=3.0.0",
     "environs>=14.2.0",
-    "gunicorn>=23.0.0",
+    "gunicorn>=23.0.0; sys_platform != 'win32'",
     "uvicorn>=0.34.3",
     "whitenoise>=6.9.0",
+    "waitress>=3.0.2; sys_platform == 'win32'",
 ]
 
 [dependency-groups]
