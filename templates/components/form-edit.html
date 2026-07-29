@@ -1,0 +1,22 @@
+{% load django_bootstrap5 %}
+<form action="" class="my-5" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button class="btn btn-outline-primary" name="_save" type="submit">
+        SALVAR
+    </button>
+    <button class="btn btn-outline-primary mx-2" name="_addanother" type="submit">
+        Salvar e adicionar outro(a)
+    </button>
+    {% if form.instance.pk %}
+        <button class="btn btn-outline-primary" name="_continue" type="submit">
+            Salvar e continuar editando
+        </button>
+        <a class="btn btn-outline-danger float-end mx-4" href="{{ delete_url }}">
+            <i class="bi bi-trash3"></i>&nbsp;Deletar
+        </a>
+    {% endif %}
+    <a class="btn btn-outline-secondary float-end" href="{{ cancel_url }}">
+        <i class="bi bi-arrow-left"></i>&nbsp;Voltar
+    </a>
+</form>

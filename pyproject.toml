@@ -1,0 +1,47 @@
+[project]
+name = "py-django"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django>=6.0.7",
+    "django-bootstrap5>=26.2",
+    "django-environ>=0.14.0",
+    "uvicorn-worker>=0.4.0",
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=7.0.0",
+]
+
+
+[tool.ruff]
+extend-exclude = [
+    "migrations",
+    "manage.py",
+]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors.
+    "F",   # pyflakes.
+    "I",   # isort (organização de imports).
+    "DJ",  # flake8-django: boas práticas específicas do Django.
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.lint.per-file-ignores]
+"**/settings*.py" = ["F401", "F403"]
+
+[tool.djangofmt]
+line-length = 120
+indent-width = 4
+profile = "django"
+custom-blocks = ["stage", "flatblock"]
+html-void-self-closing = "never"
+preserve-unquoted-attrs = false

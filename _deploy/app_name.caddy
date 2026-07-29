@@ -1,0 +1,26 @@
+example.com, www.example.com {
+    encode gzip zstd
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy strict-origin-when-cross-origin
+    }
+
+    # Pasta public onde o collectstatic coloca os arquivos.
+    handle /public/staticfiles/* {
+        root * /opt/app_name
+        file_server
+    }
+
+    handle /public/media/* {
+        root * /opt/app_name
+        file_server
+    }
+
+    # Socket do gunicorn.
+    handle {
+        reverse_proxy unix//opt/app_name/run/gunicorn.sock
+    }
+}

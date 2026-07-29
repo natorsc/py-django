@@ -1,0 +1,34 @@
+[Unit]
+Description=Gunicorn para Django ASGI (Uvicorn Workers)
+After=network.target
+
+[Service]
+ExecStartPre=/usr/bin/mkdir -p /opt/app_name/run
+Type=notify
+User=www-data
+Group=www-data
+
+# Mudado para a raiz geral do projeto.
+WorkingDirectory=/opt/app_name
+
+EnvironmentFile=/opt/app_name/.env
+Environment=DJANGO_SETTINGS_MODULE=_config.settings
+Environment=PYTHONUNBUFFERED=1
+
+# Execução limpa e direta
+ExecStart=/opt/app_name/.venv/bin/gunicorn \
+    -c _deploy/gunicorn.conf.py \
+    _config.wsgi:application
+
+Restart=always
+RestartSec=5
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/app_name/run /opt/app_name/public /opt/app_name/db.sqlite3
+
+[Install]
+WantedBy=multi-user.target

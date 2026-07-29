@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Tasks{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Tasks</h2>
+        {% include 'components/form-search.html' %}
+        <a class="btn btn-primary" href="{% url 'task:create' %}">
+            <i class="bi bi-plus-lg"></i>&nbsp;Adicionar
+        </a>
+        <table class="table my-4">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Completo</th>
+                    <th class="text-end">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in object_list %}
+                    <tr>
+                        <td>{{ obj.title }}</td>
+                        <td>{{ obj.complete }}</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-warning" href="{% url 'task:update' obj.id %}">
+                                <i class="bi bi-pencil-square"></i>&nbsp;Editar
+                            </a>
+                            <a class="btn btn-sm btn-danger" href="{% url 'task:delete' obj.id %}">
+                                <i class="bi bi-trash3"></i>&nbsp;Excluir
+                            </a>
+                        </td>
+                        {% empty %}
+                        <td class="text-danger">Nenhum item cadastrado</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                {% include 'components/pagination.html' %}
+            </tfoot>
+        </table>
+        {% include 'components/pagination.html' %}
+    </div>
+{% endblock %}

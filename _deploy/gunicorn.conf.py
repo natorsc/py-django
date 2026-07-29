@@ -1,0 +1,11 @@
+bind = "unix:/opt/app_name/run/gunicorn.sock"
+workers = 3
+worker_class = "uvicorn_worker.UvicornWorker"
+timeout = 30
+graceful_timeout = 30
+keepalive = 5
+accesslog = "-"
+errorlog = "-"
+capture_output = True
+loglevel = "info"
+preload_app = True

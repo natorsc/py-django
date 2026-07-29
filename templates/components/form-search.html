@@ -1,0 +1,22 @@
+<form action="" class="my-5" method="get">
+    <div class="mb-3">
+        <label for="{{ field_name|default:'q' }}" class="form-label">{{ label|default:"Buscar" }}</label>
+        <div class="input-group">
+            <input
+                aria-label="{{ label|default:'Buscar' }}"
+                class="form-control"
+                id="{{ field_name|default:'q' }}"
+                placeholder="{{ placeholder|default:'Buscar' }}"
+                name="{{ field_name|default:'q' }}"
+                type="text"
+                value="{{ request.GET.q|default:'' }}"
+            >
+            <button class="btn btn-outline-secondary" type="submit">
+                <i class="bi bi-search"></i>&nbsp;Buscar
+            </button>
+            <a class="btn btn-outline-secondary" href="{{ request.path }}"><i
+                    class="bi bi-x-circle"
+                ></i>&nbsp;Limpar</a>
+        </div>
+    </div>
+</form>
