@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Tasks{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Tasks</h2>
+        {% include 'components/form-search.html' %}
+        <a class="btn btn-primary" href="{% url 'task:create' %}">
+            <i class="bi bi-plus-lg"></i>&nbsp;Adicionar
+        </a>
+        <div class="card my-4">
+            <div class="card-header">
+                {% include 'components/pagination.html' %}
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Completo</th>
+                            <th class="text-end">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for obj in object_list %}
+                            <tr>
+                                <td>{{ obj.title }}</td>
+                                <td>{% if obj.complete %}🟢{% else %}🔴{% endif %}</td>
+                                <td class="text-end">
+                                    <a
+                                        class="btn btn-sm btn-warning"
+                                        href="{% url 'task:update' obj.id %}"
+                                    >
+                                        <i class="bi bi-pencil-square"></i>&nbsp;Editar
+                                    </a>
+                                    <a
+                                        class="btn btn-sm btn-danger"
+                                        href="{% url 'task:delete' obj.id %}"
+                                    >
+                                        <i class="bi bi-trash3"></i>&nbsp;Excluir
+                                    </a>
+                                </td>
+                                {% empty %}
+                                <td class="text-danger">Nenhum item cadastrado</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-body-secondary">
+                {% include 'components/pagination.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

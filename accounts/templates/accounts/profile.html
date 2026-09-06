@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ get_user }}{% endblock %}
+{% block content %}
+    {% with get_user=user.get_username %}
+        <div class="container">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <b>Nome</b>: {{ user.get_full_name|default:"Não informado" }}.
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><b>Usuário</b>: @{{ get_user }}.</p>
+                    <p class="card-text">
+                        <b>Email</b>: {{ user.email|default:"Não informado" }}.
+                    </p>
+                    <p class="card-text"><b>Criado em</b>: {{ user.date_joined }}.</p>
+                    <a class="btn btn-primary me-4" href="{% url 'accounts:update' %}">
+                        <i class="bi bi-arrow-clockwise"></i>&nbsp;Atualizar
+                    </a>
+                    {% if user.is_superuser %}
+                        <a class="btn btn-warning" href="{% url 'admin:index' %}">
+                            <i class="bi bi-cup-hot"></i>&nbsp;Django Admin
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endwith %}
+{% endblock %}

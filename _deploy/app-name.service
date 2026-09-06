@@ -1,0 +1,33 @@
+[Unit]
+Description=Gunicorn para Django
+After=network.target
+
+[Service]
+Type=notify
+
+User=www-data
+Group=www-data
+
+WorkingDirectory=/var/www/html/APP-NAME
+
+EnvironmentFile=/var/www/html/APP-NAME/.env
+Environment=DJANGO_SETTINGS_MODULE=_config.settings
+Environment=PYTHONUNBUFFERED=1
+
+ExecStart=/var/www/html/APP-NAME/.venv/bin/gunicorn \
+    -c /var/www/html/APP-NAME/_deploy/gunicorn.conf.py \
+    _config.wsgi:application
+
+Restart=always
+RestartSec=5
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+ReadWritePaths=/var/www/html/APP-NAME/public \
+               /var/www/html/APP-NAME/db.sqlite3
+
+[Install]
+WantedBy=multi-user.target

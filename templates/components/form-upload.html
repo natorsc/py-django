@@ -1,0 +1,11 @@
+{% load django_bootstrap5 %}
+<form action="" class="my-5" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" name="_save" class="btn btn-primary">Salvar</button>
+    <button type="submit" name="_addanother" class="btn btn-primary">Salvar e adicionar outro</button>
+    {% if form.instance.pk %}
+        <button type="submit" name="_continue" class="btn btn-primary">Salvar e continuar editando</button>
+    {% endif %}
+    <a class="btn btn-danger float-end" href="{{ cancel_url }}">Cancelar</a>
+</form>

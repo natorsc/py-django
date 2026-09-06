@@ -1,0 +1,31 @@
+
+# :8000, example.com, www.example.com
+:8000 {
+	encode gzip zstd
+
+	log {
+		output stdout
+		format json
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	handle_path /public/staticfiles/* {
+		root * /var/www/html/APP-NAME/public/staticfiles
+		file_server
+	}
+
+	handle_path /public/media/* {
+		root * /var/www/html/APP-NAME/public/media
+		file_server
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8000
+	}
+}
