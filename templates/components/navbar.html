@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+<nav class="navbar lg:navbar-expand bg-body-tertiary mb-5">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Brand</span>
         <button
@@ -13,10 +13,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 lg:mb-0">
                 {% include 'components/navbar-items.html' %}
             </ul>
-            <div class="d-flex me-5">
+            <div class="d-flex me-5 align-items-center gap-2">
                 {% include 'components/change-theme.html' %}
                 {% if user.is_authenticated %}
                     {% include 'components/is-authenticated.html' %}

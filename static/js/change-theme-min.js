@@ -1,12 +1,12 @@
+// change-theme-min.js
+// O Bootstrap 6 continua utilizando o atributo padrão do DOM para alternância de temas (light/dark)
 document.addEventListener("DOMContentLoaded", () => {
   const themeItems = document.querySelectorAll("[data-theme]");
-
   const themeLabel = document.getElementById("themeLabel");
 
   // Verifica se o elemento existe
   if (!themeLabel) {
     console.warn("Elemento #themeLabel não encontrado.");
-
     return;
   }
 
@@ -15,12 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
       text: "Claro",
       icon: "bi-sun",
     },
-
     dark: {
       text: "Escuro",
       icon: "bi-moon",
     },
-
     system: {
       text: "Sistema",
       icon: "bi-circle-half",
@@ -42,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Define o tema efetivo
     const effectiveTheme = theme === "system" ? getSystemTheme() : theme;
 
-    // Aplica o tema ao Bootstrap 5.3
+    // Aplica o tema na raiz do documento (compatível com Bootstrap 5.3 e v6)
     document.documentElement.setAttribute("data-bs-theme", effectiveTheme);
 
     // Atualiza o botão principal
@@ -54,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Salva a preferência
     localStorage.setItem("theme", theme);
 
-    // Marca a opção selecionada
+    // Marca a opção selecionada no menu dropdown
     themeItems.forEach((item) => {
       item.classList.toggle("active", item.dataset.theme === theme);
     });
@@ -73,14 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Detecta mudanças no tema do sistema
+  // Detecta mudanças no tema do sistema operacional
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
   systemTheme.addEventListener("change", () => {
     const currentTheme = localStorage.getItem("theme") || "system";
 
-    // Só reage automaticamente
-    // quando o usuário escolheu Sistema
+    // Só reage automaticamente quando o usuário escolheu "Sistema"
     if (currentTheme === "system") {
       applyTheme("system");
     }
